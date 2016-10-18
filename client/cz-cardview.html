@@ -15,7 +15,7 @@
       }
 
       .column {
-        width: calc(var(--column-percent, 100%) - 20px);
+        width: var(--column-width);
       }
 
     </style>
@@ -167,7 +167,8 @@
         if (views.length > this.columns)
           views.splice(this.columns, views.length - this.columns);
         this.set('views', views);
-        this.customStyle['--column-percent'] = (100/this.columns) + '%';
+        this.style.setProperty('--column-count', this.columns);
+        this.customStyle['--column-width'] = 'calc(' + (100 / this.columns) + '%' + (this.columns > 1 ? ' - 20px' : '') + ')';
         this.updateStyles();
         this.async(function() {
           var columns = this.querySelectorAll('.column');
