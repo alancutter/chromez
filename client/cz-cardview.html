@@ -148,7 +148,7 @@
 
       properties: {
         columns: { value: 1, observer: 'columnsChanged' },
-        views: { type: 'Object', value: function() { return [{cards: [], height: 0}]; }}
+        views: { type: 'Array', value: function() { return [{cards: [], height: 0}]; }}
       },
 
       attached: function() {
